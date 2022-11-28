@@ -11,13 +11,13 @@
 <div class="div1">
 
 
-<h1>Page de Connexion</h1>
+   <h1>Page de Connexion</h1>
 
-<h2>Connectez-Vous :</h2>
+   <h2>Connectez-Vous :</h2>
 
 <!--    Formulaire de connexion -->
 
-    <form action="connexion" method="post">
+   <form action="connexion" method="post">
         <label><b>Nom d'utilisateur</b></label>
         <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
         <p>
@@ -25,7 +25,7 @@
         <input type="password" placeholder="Entrer le mot de passe" name="password" required>
         </p>
         <input type="submit" id='submit' value='login' >
-
+   </form>
     <!--
         
 

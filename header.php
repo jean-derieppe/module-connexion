@@ -1,9 +1,8 @@
 <header>
-<div class="header">
+    
    <h1 class="Module">Module de connexion</h1>
 
-</div>
-    <nav>
+    <nav class="header">
         <ul class="list1">
             <a href="index.php">
             <button>
@@ -30,9 +29,9 @@
             <li>Contact</li>
             </button></a>
 
-            <a href="deconnection.php">
+            <a href="deconnexion.php">
             <button>
-            <li>Déconnection</li>
+            <li>Déconnexion</li>
             </button></a>
         </ul>
     </nav>

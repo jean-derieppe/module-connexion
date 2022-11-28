@@ -1,19 +1,11 @@
-<footer> 
-<nav class="footer">
+<footer>
+    
+    <nav class="footer">
         <ul class="list1">
+
             <a href="index.php">
             <button>
             <li>Accueil</li>
-            </button></a>
-
-            <a href="connexion.php">
-            <button>
-            <li>Connexion</li>
-            </button></a>
-
-            <a href="inscription.php">
-            <button>
-            <li >Inscription</li>
             </button></a>
 
             <a href="https://github.com/jean-derieppe">

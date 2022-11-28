@@ -7,12 +7,11 @@
 </head>
 <body>
     <!-- include Header.php -->
+    <div class="div1">
     <?php include("header.php") ?>
-    
 
     <!-- Partie visible sur la page Accueil -->
     <h1>Hello Sir</h1>
-<div class="div1">
     <h2>Bienvenue sur le site qui vous permet de faire un module de connexion</h2> 
         
     <p>
