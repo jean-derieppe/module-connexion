@@ -1,7 +1,7 @@
 <footer>
-    
+
     <nav class="footer">
-        <ul class="list1">
+        <ul class="list2">
 
             <a href="index.php">
             <button>

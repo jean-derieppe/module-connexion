@@ -20,8 +20,7 @@
     <h1>Profil</h1>
 
     <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque fugiat architecto debitis ea perspiciatis, repudiandae illum vitae<br>
-        exercitationem eos alias cupiditate eaque ipsum officia, hic sit praesentium expedita neque quis!
+        Vous pouvez acceder à vos informations personnels et les modifiers autant de fois que vous le voudrez !
     </p>
 
     <form class="modification" action="" method="post">
