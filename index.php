@@ -17,18 +17,12 @@
         <h2>Bienvenue sur le site qui vous permet de faire un module de connexion</h2> 
             
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae aliquam expedita sint ex. Hic dicta<br>
-            neque magni error praesentium ullam ipsa dolorem, quam iure nemo nostrum modi quod corrupti.
-            <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed error libero assumenda expedita dolores dolorem<br>
-            ipsam eius consequatur debitis, ullam quos suscipit doloribus reiciendis ipsum?
-            <br>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br>
-            Nam omnis voluptates repudiandae accusantium non, similique<br>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
+            Apprenez à intéragir avec une Base De Données qui permettra d'alimenter le profil de vos utilisateurs en fonction des données<br>
+            qu'ils vous ont fournis et qui sont enregistré sur votre base de données .      <br>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </p>
     </div>
-       
+
 </body>
 </html>
 <!-- Include Footer.php -->

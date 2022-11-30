@@ -1,3 +1,6 @@
+<!-- include Header.php -->
+<?php include("header.php") ?>
+
 <html>
  <head>
  <html lang="fr">
@@ -6,52 +9,75 @@
  <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
  <title>Inscription</title>
  </head>
-<!-- include Header.php -->
- <?php include("header.php") ?>
- <div class="div1">
+<body>
+    <div class="div1">
 
- <h1 class="box-title">S'inscrire</h1>
-    <!--  Formulaire d'inscription  -->
-    <form class="inscription" action="" method="post">
-        <input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur" required />
-        <input type="text" class="box-input" name="surname" placeholder="Prénom d'utilisateur" required />
-        <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
-        <input type="password" name="repass" placeholder="Confirmer Mot de passe" required />
-        <input type="submit" name="submit" value="S'inscrire" class="box-button" />
+    <h1 class="box-title">S'inscrire</h1>
+
+    <!--  Formulaire d'inscription avec la method POST -->
+
+    <form class="inscription" action="" method="post">                                          <!-- required vérifie que le champs n'est pas vide ? -->
+        Entrez votre Nom
+        <input type="text" class="box-input" name="name" placeholder="Name" style="width: 200px; height: 50px;" required /><br>
+        Entrez votre Prénom
+        <input type="text" class="box-input" name="surname" placeholder="Surname" style="width: 200px; height: 50px;" required /><br>
+        Entrez votre Pseudo
+        <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
+        Entrez votre Mots de passe
+        <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
+        Confirmez votre Mots de passe
+        <input type="password" name="confirmpassword" placeholder="Confirm password" style="width: 200px; height: 50px;" required /><br>
+        <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
         <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
     </form>
 
-    <!-- Le formulaire doit contenir l’ensemble des champs présents dans la table
-    “utilisateurs” (sauf “id”) + une confirmation de mot de passe. Dès qu’un
-    utilisateur remplit ce formulaire, les données sont insérées dans la base de
-    données et l’utilisateur est redirigé vers la page de connexion. -->
+    <!--
+            if isset $_post [Submit] 
+            si résultat non nul et non existant en BDD alors "submit" vers la BDD 
+                                                                                        -->
 
 
-    <!-- Lors de l'inscription, aucun champ ne doit être laissé vide et les champs "mot de passe" et "confirmation de mot de passe" doivent
-    être identiques. Si tous les champs sont valides, on vérifie d'abord si le login n'existe pas déjà dans la base de donnée. Si non alors
-    les informations de l'utilisateur seront placées dans la table "utilisateurs" vue dans la page précédente dont voici la structure: 
+        <?php
+            //Définir les variables ( pas obligatoire )  
 
-    CREATE TABLE  `utilisateurs`  Lors de l'inscription ???????!!!!!!!!!  (
-    `id` int(10) unsigned NOT NULL auto_increment,
-    `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-    `nom` varchar(40) NOT NULL,
-    `prenom` varchar(40) NOT NULL,
-    `login` varchar(40) NOT NULL,
-    `pass` varchar(40) NOT NULL,
-    PRIMARY KEY (`id`)
-    );    -->
+            $servername = 'localhost';
+            $username = 'root';
+            $password = '';
+            
+            //On établit la connexion
 
-    <!--  Code source de Inscription.php ( avec verification si les champs sont bien remplis . ) -->
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $conn = new mysqli($servername, $username, $password);
+            
+            //On vérifie la connexion avec die ou un echo
+            
+            if($conn->connect_error){
+                die('Erreur : ' .$conn->connect_error);
+            }
+            echo 'Connexion réussie';
+            
+        ?>
+
+    <!--
+                if isset $_post [Submit] ( si submit remplis alors envoyer ) 
+
+        condition Si tous les champs sont valides, on vérifie d'abord si le login ( et les compte n'existe pas déjà dans la base de donnée. Si non alors
+    les informations de l'utilisateur seront placées dans la table "utilisateurs" vue dans la page précédente dont voici la structure: -->
+
     <?php
+/*
+
+        /*    
     session_start();
-    @$nom=$_POST["nom"];
-    @$prenom=$_POST["prenom"];
-    @$login=$_POST["login"];
-    @$pass=$_POST["pass"];
-    @$repass=$_POST["repass"];
-    @$valider=$_POST["valider"];
-    $erreur="";
-    
+    $nom=$_POST["username"];
+    $prenom=$_POST["surname"];
+    $login=$_POST["login"];
+    $pass=$_POST["password"];
+    $repass=$_POST["repass"];
+
+ /*   if   */
+ 
+ /* ( empty vérifie si le champs est remplis ? )
     if(isset($valider)){
         if(empty($nom)) $erreur="Nom laissé vide!";
         elseif(empty($prenom)) $erreur="Prénom laissé vide!";
@@ -66,15 +92,32 @@
             if(count($tab)>0)
                 $erreur="Login existe déjà!";
             else{
+
+                // pas de PDO // 
+
                 $ins=$pdo->prepare("insert into utilisateurs(nom,prenom,login,pass) values(?,?,?,?)");
                 if($ins->execute(array($nom,$prenom,$login,md5($pass))))
                 header("location:login.php");
             }   
         }
     }
-    ?>
 
 
+                 Ajouter un User et ses données dans la BDD si inscription validé  .
+
+        CREATE TABLE  `utilisateurs`  Lors de l'inscription 
+        `id` int(10) unsigned NOT NULL auto_increment,
+        `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+        `nom` varchar(40) NOT NULL,
+        `prenom` varchar(40) NOT NULL,
+        `login` varchar(40) NOT NULL,
+        `pass` varchar(40) NOT NULL,
+        PRIMARY KEY (`id`)
+        );    -->
+
+ */
+
+?>
 <!--                           OU                   -->
 
 
@@ -82,13 +125,13 @@
 /*
 require('config.php');
 if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
-  // récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
+  // récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire ???
   $username = stripslashes($_REQUEST['username']);
   $username = mysqli_real_escape_string($conn, $username); 
   // récupérer l'email et supprimer les antislashes ajoutés par le formulaire
   $email = stripslashes($_REQUEST['email']);
   $email = mysqli_real_escape_string($conn, $email);
-  // récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
+  // récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire ????
   $password = stripslashes($_REQUEST['password']);
   $password = mysqli_real_escape_string($conn, $password);
   //requéte SQL + mot de passe crypté
@@ -105,25 +148,13 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
 }else{
     ?>
 
-<!--        !!        FIN       !!          !!     FIN     !!          !!    FIN     !!      !!     -->
 */
 ?>
 
-
-
-
-        <div class="erreur"><?php echo $erreur ?></div>
-        <form name="fo" method="post" action="">
-            <input type="text" name="nom" placeholder="Nom" value="<?php echo $nom?>" /><br />
-            <input type="text" name="prenom" placeholder="Prénom" value="<?php echo $prenom?>" /><br />
-    <input type="text" name="login" placeholder="Login" value="<?php echo $login?>" /><br />
-            <input type="password" name="pass" placeholder="Mot de passe" /><br />
-            <input type="password" name="repass" placeholder="Confirmer Mot de passe" /><br />
-            <input type="submit" name="valider" value="S'authentifier" />
-        </form>
-    </body>
-</div>
+    </div>
+</body>
 </html>
 
 <!-- Include Footer.php -->
+
 <?php include("footer.php") ?>

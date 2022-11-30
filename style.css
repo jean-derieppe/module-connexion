@@ -3,45 +3,49 @@ h1{
     text-align: center;
     padding: 0;
 }
-
+/*  Title Module header  */
 .Module{
     font-size: 3vmax;
     color: rgb(255, 255, 255);
     text-shadow: 0 3px 6px rgb(82, 82, 82);
     text-align: center;
     margin: 0;
-
 }
+
 
 /* Body et Corp */ 
 body{
-    height: 2500px;
+    height: 250px;
+background-color: rgb(111, 70, 201);
 }
 
 .div1{
     text-align: center;
+    padding-bottom: 25px;
 }
 
 /* Header et Footer */
 
 header{
-    bottom:0;  /* on le colle en bas */
     width:100%;
-    background-color: rgb(199, 47, 47);
-    padding-bottom: 15px;
+    background-color: rgb(42, 124, 27);
+    padding-bottom: 10px;
 }
 
 footer {
     padding-top: 16px;
     margin: 0;
     width:100%;
-    height:100px;   /* Hauteur du pied de page */
-    background-color: rgb(43, 59, 148);
-    position: absolute;
+    height:150px;   /* Hauteur du pied de page */
+    background-color: rgb(194, 46, 27);
+}
+
+textarea{
+    max-width: rows ="25" cols="150" ;
 }
 
 
-/*  Div , list1 ( footer et header )     */  
+/*  list1 et list2 ( nav footer et header )     */  
 
 .list1{
     display: flex;
@@ -52,12 +56,14 @@ footer {
 .list2{
     display: flex;
     list-style-type: none;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0;
 }
 
 /* hover des <a> */
-
+a:hover{
+    transform: translate(0, -6px);
+}
 .btn2{
     border-radius: 70px;
     margin-left: 15px;
