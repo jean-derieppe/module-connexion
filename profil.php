@@ -38,6 +38,7 @@
 
     </div>
 
+
 </html>
     <!-- Include Footer.php -->
     <?php include("footer.php") ?>

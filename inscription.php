@@ -26,15 +26,15 @@
             <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
             Entrez votre Mots de passe
             <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
-            Confirmez votre Mots de passe
+            <b>Confirmez votre Mots de passe</b>
             <input type="password" name="repass" placeholder="Confirm password" style="width: 200px; height: 50px;" required /><br>
             <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
 
-            <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
         </form>
 
-        <?php
-            
+        <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
+
+        <?php  
         //On établit la connexion avec une requête mysqli en idiquant le chemin 
             $conn = new mysqli('localhost', 'root', '', 'moduleconnexion');                                                                   
 
@@ -49,9 +49,14 @@
 
             // vérifie si les 2 MDP sont différent
             if ( $pass != $repass ){
-                echo "Erreur, Mots de passe non similaire";
+                echo "<strong>Erreur, Mots de passe non similaire</strong>";
             } // pas la peine de préciser le $pass == $repass ?? )
                 else if ( $pass == $repass ){
+                
+                    $select = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = '".$_POST['login']."'");
+                    if(mysqli_num_rows($select)) {
+                        exit('<strong>Ce login est déjà utilisé</strong>');
+                    }
                 // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
                     $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
                 // envoyer la requête
@@ -60,7 +65,7 @@
                     header ('Location: connexion.php');
                 }
         }
-        // // requête qui selectionne login dans utilisateurs
+        // // requête qui selectionne login dans utilisateurs ( pour vérifier si existant )
         // $req = "SELECT `login` FROM `utilisateurs`";
         // // envoyer la requête
         // $create = $conn->query($sql);   

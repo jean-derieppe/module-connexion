@@ -30,46 +30,33 @@
          <label><b>Mot de passe</b></label>
          <input type="password" placeholder="Enter your password" name="password" required>
          </p>
-         <input type="submit" name='submit' value='login' >
+         <input type="submit" name='submit' value='submit' >
       </form>
 
          <p>Pas de compte ? <a href="inscription.php">Inscrivez-vous ici</a></p>
 
-       <!--   Lorsque submit est validé, 
-               Requête pour chercher les données en bdd , alors
-               l’utilisateur est considéré comme connecté        -->
-
- 
-<!-- require('inscription.php');
-if (isset($_REQUEST['name'], $_REQUEST['login'], $_REQUEST['password'])){
-  $username = ($_REQUEST['name']);
-  $email = ($_REQUEST['login']);
-  $password = ($_REQUEST['password']);
-  //requéte SQL + mot de passe crypté 
-    $query = "INSERT into `users` (username, email, password)
-              VALUES ('$username', '$email', '".hash('sha256', $password)."')";
-  // Exécuter la requête sur la base de données
-    $res = mysqli_query($conn, $query);
-    if($res){
-       echo "<div class='sucess'>
-             <h3>Vous êtes inscrit avec succès.</h3>
-             <p>Cliquez ici pour vous <a href='login.php'>connecter</a></p>
-       </div>";
-    } -->
-
  <?php
 
-      // session_start();
+      session_start();
+
       // $login=$_POST["login"];
       // $pass=$_POST["password"];
-      // $valider=$_POST["valider"];
+      // $submit=$_POST["submit"];
       // $erreur="";
-      // if(isset($valider)){
-      //    include("connexion.php");
-      //    // refaire le code ?
+      // if(isset($submit)){
 
+         //Requête pour chercher les données en bdd 
 
-   // for ($login && $pass "vérifier s'il correspondent tous les deux aux même user de  la table ");
+         if (isset($_POST["submit"])){
+            $login=$_POST["login"];
+            $password=$_POST["password"];
+            
+
+            header ('Location: profil.php');
+         }
+   //       si le login et password existent en BDD, alors l'user est connecté
+
+   // // for ($login && $pass "vérifier s'il existent tous les deux (aux même user) de  la table ");
 
 ?>
 

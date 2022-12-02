@@ -16,9 +16,8 @@ h1{
 /* Body et Corp */ 
 body{
     height: 250px;
-background-color: rgb(111, 70, 201);
+    background-color: rgb(205, 174, 234);
 }
-
 .div1{
     text-align: center;
     padding-bottom: 25px;
