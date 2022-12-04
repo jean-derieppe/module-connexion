@@ -12,16 +12,10 @@
 
     <div class="div1">
 
-    <!--    
-            Cette page est uniquement visible si l'User posséde un compte et possède un formulaire permettant à l’utilisateur de modifier ses
-            informations. 
-            Ce formulaire doit être par défaut pré-rempli avec les informations de l'User actuel,
-            qui sont actuellement stockées en base de données. 
-                                                                                -->
-
         <h1>Profil</h1>
 
         <p>    
+            Bonjour <!-- Afficher le login de user-->
             Vous pouvez acceder à vos informations personnels et les modifiers autant de fois que vous le voudrez !<br>
             Afficher uniquement si User est Log <br>
 
@@ -35,10 +29,19 @@
             <input type="password" class="box-input" name="password" placeholder="Nouveau mot de passe" required /><br>
             <input type="password" name="repass" placeholder="Confirmer nouveau mot de passe" required /><br>
             <input type="submit" name="submit" value="Valider Modification" class="box-button" />
-
+        </form>
+        
     </div>
-
-
 </html>
+
+<?php
+    if (isset($_POST["submit"])){
+        $nom=$_POST["name"];
+        $prenom=$_POST["surname"];
+        $login=$_POST["login"];
+        $pass=$_POST["password"];
+        $repass=$_POST["repass"];
+    }
+?>
     <!-- Include Footer.php -->
     <?php include("footer.php") ?>

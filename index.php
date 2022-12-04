@@ -16,7 +16,11 @@
         <!-- Partie visible sur la page Accueil -->
         <h1>Hello Sir</h1>
 
-        <h2>Bienvenue sur le site qui vous permet de faire un module de connexion</h2> 
+        <h2>Bienvenue sur le site qui vous permet de faire un module de connexion</h2>
+        
+        <p>
+            Aujourd'hui nous somme le <?php echo date('d/m/Y') ?>
+        </p>
             
         <p>
             Apprenez à intéragir avec une Base De Données qui permettra d'alimenter le profil de vos utilisateurs en fonction des données<br>

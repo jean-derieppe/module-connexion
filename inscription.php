@@ -21,15 +21,15 @@
             </p>
             <!--  Formulaire d'inscription avec la method POST interet du champ Label ??????????? -->
             <form class="inscription" action="inscription" method="post">  <!-- required vérifie que le champs n'est pas vide ? -->
-                <b>Entrez votre Nom</b>
+                <label>Entrez votre Nom</label>
                 <input type="text" class="box-input" name="name" placeholder="Name" style="width: 200px; height: 50px;" required /><br>
-                <b>Entrez votre Prénom</b>
+                <label>Entrez votre Prénom</label>
                 <input type="text" class="box-input" name="surname" placeholder="Surname" style="width: 200px; height: 50px;" required /><br>
-                <b>Entrez votre Pseudo</b>
+                <label>Entrez votre Pseudo</label>
                 <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
-                <b>Entrez votre Mots de passe</b>
+                <label>Entrez votre Mots de passe</label>
                 <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
-                <b>Confirmez votre Mots de passe</b>
+                <label>Confirmez votre Mots de passe</label>
                 <input type="password" name="repass" placeholder="Confirm password" style="width: 200px; height: 50px;" required /><br>
                 <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
             </form>
@@ -42,7 +42,7 @@
 
 <?php
                                                           
-// définition des variables ( elles ne sont pas obligatoire ) et condition pour Submit 
+// définition des variables et condition pour Submit 
 if (isset($_POST["submit"])){
     $nom=$_POST["name"];
     $prenom=$_POST["surname"];

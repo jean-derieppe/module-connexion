@@ -1,33 +1,24 @@
 /* Texte */
+html{
+    background-color: rgb(233, 147, 42);
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://i.gifer.com/origin/0f/0f125a1a2fe2f1f64a7d112e9a9a4306_w200.webp);
+    background-size: auto;
+    background-size: 1300px;
+    color: rgb(255, 255, 255);
+}
+
 h1{
     text-align: center;
     padding: 0;
-}
-/*  Title Module header  */
-.Module{
-    font-size: 3vmax;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 3px 6px rgb(82, 82, 82);
-    text-align: center;
-    margin: 0;
-}
-
-
-/* Body et Corp */ 
-body{
-    height: 250px;
-    background-color: rgb(205, 174, 234);
-}
-.div1{
-    text-align: center;
-    padding-bottom: 25px;
 }
 
 /* Header et Footer */
 
 header{
     width:100%;
-    background-color: rgb(42, 124, 27);
+    background-color: red;
     padding-bottom: 10px;
 }
 
@@ -36,13 +27,28 @@ footer {
     margin: 0;
     width:100%;
     height:150px;   /* Hauteur du pied de page */
-    background-color: rgb(194, 46, 27);
+    background-color: green;
 }
 
-textarea{
-    max-width: rows ="25" cols="150" ;
+/*  Title Module header  */
+.Module{
+    font-size: 3vmax;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 3px 6px rgb(8, 8, 8);
+    text-align: center;
+    margin: 0;
 }
 
+
+/* Body et Corp */ 
+body{
+    opacity: 0.6;
+}
+
+.div1{
+    text-align: center;
+    padding-bottom: 25px;
+}
 
 /*  list1 et list2 ( nav footer et header )     */  
 
@@ -50,6 +56,9 @@ textarea{
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
+}
+.list1:hover{
+    opacity: 1;
 }
 
 .list2{

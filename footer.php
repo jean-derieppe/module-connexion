@@ -18,6 +18,11 @@
             <li >Contact</li>
             </button></a>
 
+            <a href="admin.php">
+            <button>
+            <li>Admin</li>
+            </button></a>
+
             <a href="#">
             <button>
             <li>Haut-de-page</li>
