@@ -47,7 +47,7 @@
             $password=$_POST["password"];
          
             if($login && $password != 0 ){
-               $requete = "SELECT count(*) FROM utilisateurs where login = '".$login."'"; // rajouter le MDP dans la même ligne ? 
+               $requete = "SELECT login,password FROM utilisateurs"; 
                $exec_requete = $conn -> query($requete);
                $reponse      = mysqli_fetch_array($exec_requete);
                $count = $reponse['count(*)'];
