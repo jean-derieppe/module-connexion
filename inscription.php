@@ -50,66 +50,36 @@
         $pass=$_POST["password"];
         $repass=$_POST["repass"];
 
-        if ( $pass == $repass){
-
-
-        
-        }else{
-            echo "<h1> Password non similaire </h1>";
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // si eglité des $pass alors vérifier si le $login existent
-    //     if ( $pass == $repass ){
-    //         $req = "SELECT * FROM utilisateurs where login = '$login'";
-    //         $exec_requete = $conn -> query($req);
-    //         $reponse = mysqli_fetch_array($exec_requete);
-    //         echo $reponse[0][0];
-    //       //  $pass = $reponse['login'];
+        if ( $pass == $repass ){
+             $select = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = $_POST ['login'].");
+        //     $req = "SELECT * FROM utilisateurs where login = '$login'";
+        //     $exec_requete = $conn -> query($req);
+        //     $reponse = mysqli_fetch_array($exec_requete);
+        //     echo $reponse[0][0];
+        //   //  $pass = $reponse['login'];
+            if ( mysqli_num_rows($select)){
+                echo "Ce login est déja utilisé";
+            }
 
-    //         //si la réponse correspond à $login alors .
-    //         if ($reponse !== $login ){
-    //             // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
-    //             $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
-    //             // envoyer la requête
-    //             $create = $conn->query($req);
-    //             // Redirection vers la page connexion.php
-    //             header ('Location: connexion.php');
-    //         }
-    //         else{
-    //             echo "<h1>Login déja existant<h1>";
-    //         }
-    //     }
-    //     else{
-    //         echo "<h1>Mots de passe non similaire.<h1>";
-    //     }
-    // }
+        //     //si la réponse correspond à $login alors .
+        //     if ($reponse !== $login ){
+        //         // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
+        //         $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
+        //         // envoyer la requête
+        //         $create = $conn->query($req);
+        //         // Redirection vers la page connexion.php
+        //         header ('Location: connexion.php');
+        //     }
+        //     else{
+        //         echo "<h1>Login déja existant<h1>";
+        //     }
+        // }
+        // else{
+        //     echo "<h1>Mots de passe non similaire.<h1>";
+        // }
+        }
+    }
 
 
 ?>
