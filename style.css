@@ -1,33 +1,39 @@
 /* Texte */
 html{
-    background-color: rgb(233, 147, 42);
-    background-size: cover;
-    background-position: center;
-    background-image: url(https://i.gifer.com/origin/0f/0f125a1a2fe2f1f64a7d112e9a9a4306_w200.webp);
-    background-size: auto;
-    background-size: 1300px;
+    background-color: rgb(255, 141, 1);
     color: rgb(255, 255, 255);
 }
 
 h1{
     text-align: center;
     padding: 0;
+    margin: 0;
+}
+
+form{
+    opacity: 0.8;
 }
 
 /* Header et Footer */
 
 header{
     width:100%;
+    height: 130px;
     background-color: red;
     padding-bottom: 10px;
+    opacity: 0.8;
+}
+ul{
+    padding: 0;
 }
 
 footer {
-    padding-top: 16px;
-    margin: 0;
+    padding-top: 25px;
+    margin-top: 0;
     width:100%;
-    height:150px;   /* Hauteur du pied de page */
+    height:120px;   /* Hauteur du pied de page */
     background-color: green;
+    opacity: 0.8;
 }
 
 /*  Title Module header  */
@@ -39,15 +45,22 @@ footer {
     margin: 0;
 }
 
-
-/* Body et Corp */ 
-body{
-    opacity: 0.6;
+button{
+    margin-top: 35px;
 }
 
+/* Image Chat Git*/
+
+#cat{
+    object-fit: contain;
+}
+
+/* Body et Corp */ 
 .div1{
     text-align: center;
-    padding-bottom: 25px;
+    padding: 0;
+    display: block;
+    margin: auto;
 }
 
 /*  list1 et list2 ( nav footer et header )     */  
@@ -56,15 +69,14 @@ body{
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
-}
-.list1:hover{
-    opacity: 1;
+    align-items: center;
 }
 
 .list2{
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
+    align-items: center;
     margin: 0;
 }
 

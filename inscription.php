@@ -20,18 +20,18 @@
                 <h1>Veuillez renseigner les informations suivantes</h1>
             </p>
             <!--  Formulaire d'inscription avec la method POST interet du champ Label ??????????? -->
-            <form class="inscription" action="inscription" method="post">  <!-- required vérifie que le champs n'est pas vide ? -->
-                <label>Entrez votre Nom</label>
-                <input type="text" class="box-input" name="name" placeholder="Name" style="width: 200px; height: 50px;" required /><br>
+            <form class="inscription=" action="" method="post">  <!-- required vérifie que le champs n'est pas vide ? -->
+                <label>Entrez votre nom</label>
+                <input type="text" class="box-input" name="name" placeholder="Name" required /><br>
                 <label>Entrez votre Prénom</label>
-                <input type="text" class="box-input" name="surname" placeholder="Surname" style="width: 200px; height: 50px;" required /><br>
+                <input type="text" class="box-input" name="surname" placeholder="Surname" required /><br>
                 <label>Entrez votre Pseudo</label>
-                <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
+                <input type="text" class="box-input" name="login" placeholder="Login" required /><br>
                 <label>Entrez votre Mots de passe</label>
-                <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
+                <input type="password" class="box-input" name="password" placeholder="Password" required /><br>
                 <label>Confirmez votre Mots de passe</label>
-                <input type="password" name="repass" placeholder="Confirm password" style="width: 200px; height: 50px;" required /><br>
-                <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
+                <input type="password" name="repass" placeholder="Confirm password" required /><br>
+                <input type="submit" name="submit" value="S'inscrire" class="box-button"/>
             </form>
         <hr>
             <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
@@ -42,39 +42,75 @@
 
 <?php
                                                           
-// définition des variables et condition pour Submit 
-if (isset($_POST["submit"])){
-    $nom=$_POST["name"];
-    $prenom=$_POST["surname"];
-    $login=$_POST["login"];
-    $pass=$_POST["password"];
-    $repass=$_POST["repass"];
-        
-    // si eglité des $pass alors vérifier si le $login existent
-    if ( $pass == $repass ){
-        $req = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
-        $exec_requete = $conn -> query($req);
-        $reponse      = mysqli_fetch_array($exec_requete);
-        $count = $reponse['count(*)'];
+    // définition des variables et condition pour Submit 
+    if (isset($_POST["submit"])){
+        $nom=$_POST["name"];
+        $prenom=$_POST["surname"];
+        $login=$_POST["login"];
+        $pass=$_POST["password"];
+        $repass=$_POST["repass"];
 
-        //s'il n'existe pas alors
-        if ($count == 0){
-            // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
-            $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
-            // envoyer la requête
-            $create = $conn->query($req);
-            // Redirection vers la page connexion.php
-            header ('Location: connexion.php');
+        if ( $pass == $repass){
+
+
+        
+        }else{
+            echo "<h1> Password non similaire </h1>";
         }
-        else{
-            echo "<h1>Login déja existant<h1>";
-        }
+
     }
-    else{
-        echo "<h1>Mots de passe nom similaire.<h1>";
-    }
-}
-mysqli_close($conn); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // si eglité des $pass alors vérifier si le $login existent
+    //     if ( $pass == $repass ){
+    //         $req = "SELECT * FROM utilisateurs where login = '$login'";
+    //         $exec_requete = $conn -> query($req);
+    //         $reponse = mysqli_fetch_array($exec_requete);
+    //         echo $reponse[0][0];
+    //       //  $pass = $reponse['login'];
+
+    //         //si la réponse correspond à $login alors .
+    //         if ($reponse !== $login ){
+    //             // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
+    //             $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
+    //             // envoyer la requête
+    //             $create = $conn->query($req);
+    //             // Redirection vers la page connexion.php
+    //             header ('Location: connexion.php');
+    //         }
+    //         else{
+    //             echo "<h1>Login déja existant<h1>";
+    //         }
+    //     }
+    //     else{
+    //         echo "<h1>Mots de passe non similaire.<h1>";
+    //     }
+    // }
+
 
 ?>
 <!-- Include Footer.php -->

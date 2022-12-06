@@ -27,25 +27,21 @@
       </div>
 
    </body>
-   
-<?php
 
-      // vérifie uniquement si les champs correspondent à " admin "
+<?php
+      // vérifie uniquement si les champs correspondent à " admin " au lieu de chercher user et mdp admin dans la BDD
 
       if(isset($_POST['login'])){
          $_POST["login"];
          $_POST["password"];
 
          if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
-            echo "<h1> Bienvenue Admin. </br> <hr> Aujourd'hui nous somme le <?php echo date('d/m/Y') </h1>";
+            echo "<h1> Bienvenue Admin </h;>";
          } else {
             echo "<h1> Erreur </h1>";
          }
       }
 ?>
-
-
-
 
    </body>
 

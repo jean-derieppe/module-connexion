@@ -9,14 +9,8 @@
             </button></a>
 
             <a href="https://github.com/jean-derieppe">
-            <button>
-            <li >Lien Vers Git</li>
-            </button></a>
-
-            <a href="contact.php">
-            <button>
-            <li >Contact</li>
-            </button></a>
+            <img id="cat" src="CatGit.png" alt="img CatGit" height="110px" width="110px">
+            </a>
 
             <a href="admin.php">
             <button>
@@ -31,3 +25,7 @@
         </ul>
     </nav>
 </footer>
+
+<!-- variable de session pour masquer onglet pour user non co : if ($_SESSION['statut'] == "admin"){
+} 
+-->

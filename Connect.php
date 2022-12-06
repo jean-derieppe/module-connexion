@@ -7,7 +7,6 @@ $password = '';
 $bdd = 'moduleconnexion';
 
 //On établit la connexion
-$conn = new mysqli('localhost','root', '', 'moduleconnexion');
-?>
+$conn = mysqli_connect($servername,$username,$password,$bdd);
 
-<!--  disconnect ? session_destroy ?  importer uniquement dans inscription ou dans les page ayant une co avec sql ? -->
+?>

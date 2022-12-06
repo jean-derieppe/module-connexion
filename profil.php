@@ -1,5 +1,8 @@
- <!-- include Header.php -->
- <?php include("header.php") ?>
+<?php
+   session_start();
+   require_once("header.php");
+   require_once("Connect.php");
+?>
 
 <html>
  <head>
@@ -35,13 +38,15 @@
 </html>
 
 <?php
-    if (isset($_POST["submit"])){
-        $nom=$_POST["name"];
-        $prenom=$_POST["surname"];
-        $login=$_POST["login"];
-        $pass=$_POST["password"];
-        $repass=$_POST["repass"];
-    }
+    // if (isset($_POST["submit"])){
+    //     $nom=$_POST["name"];
+    //     $prenom=$_POST["surname"];
+    //     $login=$_POST["login"];
+    //     $pass=$_POST["password"];
+    //     $repass=$_POST["repass"];
+    // }
+        $user = $_SESSION['login'];
+    echo "Bienvenue sur ton profil".$_SESSION['login'];
 ?>
     <!-- Include Footer.php -->
     <?php include("footer.php") ?>
