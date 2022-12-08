@@ -1,5 +1,9 @@
 <!-- include Header.php -->
-<?php include("header.php") ?>
+<?php 
+session_start();
+require ('header.php');
+require_once("Connect.php");
+?>
 
 <html>
    <head>
@@ -12,37 +16,38 @@
 
    <body>
 
+         <h1>Bienvenue Admin</h1>
+
+         <h2>Voici les infos des User inscrit en base de données.</h2>
+         <br>
       <div class="div1">
 
-         <form action="" method="post">
-            <label><b>Login Admin</b></label>
-            <input type="text" placeholder="Enter your login" name="login" required>
-            <p>
-            <label><b>Mdp Admin</b></label>
-            <input type="password" placeholder="Enter your password" name="password" required>
-            </p>
-            <input type="submit" name='submit' value='submit' >
-         </form>
-
-      </div>
-
-   </body>
-
+         <table border="3">
+         <thead>
 <?php
-      // vérifie uniquement si les champs correspondent à " admin " au lieu de chercher user et mdp admin dans la BDD
 
-      if(isset($_POST['login'])){
-         $_POST["login"];
-         $_POST["password"];
+$request = $conn->query('select * from utilisateurs');
+$result = $request->fetch_array(MYSQLI_ASSOC);
 
-         if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
-            echo "<h1> Bienvenue Admin </h;>";
-         } else {
-            echo "<h1> Erreur </h1>";
-         }
+      foreach($result = $request->fetch_array(MYSQLI_ASSOC) as $key => $value){
+         echo '<th>' . $key . '</th>';
       }
 ?>
+         </thead>
 
+            <?php
+            while($result !=null){
+                echo '<tr>';
+                foreach($result as $value){
+                    echo '<td>' . $value . '</td>';
+                }
+                $result = $request->fetch_array(MYSQLI_ASSOC);
+                echo '</tr>';
+            }
+            ?>
+         </table>
+         
+      </div>
    </body>
 
     <!--
