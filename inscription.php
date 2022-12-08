@@ -12,35 +12,32 @@
         <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
         <title>Inscription</title>
     </head>
-    <body>
-        <div class="div1">
 
+    <body>
+        <div>
+        <hr>
             <h1 class="box-title">Inscription en date du <?php echo date('d/m/Y') ?></h1>
             
-            <p>
-                <h1>Veuillez renseigner les informations suivantes</h1>
-            </p>
+            <h1>Veuillez renseigner les informations suivantes</h1>
+
+        </div>
+
+        <div id="Formulaire">
             <!--  Formulaire d'inscription avec la method POST interet du champ Label ??????????? -->
-            <form class="inscription=" action="" method="post">  <!-- required vérifie que le champs n'est pas vide ? -->
-                <label>Entrez votre nom</label>
+            <form id="Form" action="" method="post">  <!-- required vérifie que le champs n'est pas vide ? -->
+                <strong><label>Entrez votre nom</label></strong><br>
                 <input type="text" class="box-input" name="name" placeholder="Name" required /><br>
-                <label>Entrez votre Prénom</label>
+                <strong><label>Entrez votre Prénom</label></strong><br>
                 <input type="text" class="box-input" name="surname" placeholder="Surname" required /><br>
-                <label>Entrez votre Login</label>
+                <strong><label>Entrez votre Login</label></strong><br>
                 <input type="text" class="box-input" name="login" placeholder="Login" required /><br>
-                <label>Entrez votre Mots de passe</label>
+                <strong><label>Entrez votre Mots de passe</label></strong><br>
                 <input type="password" class="box-input" name="password" placeholder="Password" required /><br>
-                <label>Confirmez votre Mots de passe</label>
+                <strong><label>Confirmez votre Mots de passe</label></strong>
                 <input type="password" name="repass" placeholder="Confirm password" required /><br>
                 <input type="submit" name="submit" value="S'inscrire" class="box-button"/>
             </form>
-        <br><hr>
-        <!--  Si connecté , masquer l'onglet inscription  -->
-            <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
-        <hr>
-        </div>
-    </body>
-</html>
+            <br><hr>
 
 <?php                                             
     // parcour uniquement le $_post de submit ou tous ? et retourne un bolléen true ou false ? 
@@ -85,7 +82,17 @@
         }
 
     }
+
+?>
+            <!--  Si connecté , masquer l'onglet inscription  -->
+            <p><strong>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
+            <hr class="hr1">
+        </div>
+    </body>
+</html>
+
+<!-- Include Footer.php -->
+<?php
+include("footer.php");
 mysqli_close($conn);
 ?>
-<!-- Include Footer.php -->
-<?php include("footer.php") ?>
