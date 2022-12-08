@@ -1,34 +1,30 @@
-<header>
-    
-   <h1 class="Module">Module de connexion</h1>
 
+<header>
+
+   <h1 class="Module"><img src="MD.png"></h1>
+<hr>
     <nav class="header">
         <ul class="list1">
             <a href="index.php">
-            <button>
-            <li>Accueil</li>
-            </button></a>
+            <img src="Accueil.png">
+            </a>
 
             <a href="inscription.php">
-            <button>
-            <li >Inscription</li>
-            </button></a>
+            <img src="Inscription.png">
+            </a>
 
 
             <a href="connexion.php">
-            <button>
-            <li>Connexion</li>
-            </button></a>
+            <img src="Connexion.png">
+            </a>
 
             <a href="profil.php">
-            <button>
-            <li >Profil</li>
-            </button></a>
+            <img src="Profil.png">
+            </a>
 
-            <a href="deconnexion.php">
-            <button>
-            <li>Déconnexion</li>
-            </button></a>
+            <a href="deconnexion">
+            <img src="Déconnexion.png">
+            </a>
         </ul>
     </nav>
 </header>
