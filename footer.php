@@ -4,15 +4,15 @@
         <ul class="list2">
 
             <a href="index.php">
-            <img id="house" src="House.png"height="110px" width="110px">
+            <img id="house" src="House.png" title="Accueil" height="110px" width="110px">
             </a>
 
             <a href="https://github.com/jean-derieppe">
-            <img id="cat" src="GitCat.png" alt="img CatGit" height="110px" width="110px">
+            <img id="cat" src="GitCat.png" title="Lien vers GitHub" alt="img CatGit" height="110px" width="110px">
             </a>
 
             <a href="#">
-            <img id='#' src="Haut.png" height="110px" width="110px">
+            <img id='#' src="Haut.png" title="Haut de page" height="110px" width="110px">
             </a>
 
         </ul>
