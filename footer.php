@@ -4,23 +4,16 @@
         <ul class="list2">
 
             <a href="index.php">
-            <button>
-            <li>Accueil</li>
-            </button></a>
-
-            <a href="https://github.com/jean-derieppe">
-            <img id="cat" src="CatGit.png" alt="img CatGit" height="110px" width="110px">
+            <img id="house" src="House.png"height="110px" width="110px">
             </a>
 
-            <a href="admin.php">
-            <button>
-            <li>Admin</li>
-            </button></a>
+            <a href="https://github.com/jean-derieppe">
+            <img id="cat" src="GitCat.png" alt="img CatGit" height="110px" width="110px">
+            </a>
 
             <a href="#">
-            <button>
-            <li>Haut-de-page</li>
-            </button></a>
+            <img id='#' src="Haut.png" height="110px" width="110px">
+            </a>
 
         </ul>
     </nav>
