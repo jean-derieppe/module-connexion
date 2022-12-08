@@ -1,6 +1,5 @@
 <?php
-//Définir les variables ( pas obligatoire )  
-
+//Définir les variables ( pas obligatoire ) 
 $servername = 'localhost';
 $username = 'root';
 $password = '';
