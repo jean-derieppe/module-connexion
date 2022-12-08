@@ -2,6 +2,7 @@
    session_start();
    include("header.php");
    require_once("Connect.php");
+//    include('function/function.php');
 ?>
 <html>
     <head>
@@ -33,7 +34,7 @@
                 <input type="password" name="repass" placeholder="Confirm password" required /><br>
                 <input type="submit" name="submit" value="S'inscrire" class="box-button"/>
             </form>
-        <hr>
+        <br><hr>
         <!--  Si connecté , masquer l'onglet inscription  -->
             <p>Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>
         <hr>
@@ -41,27 +42,26 @@
     </body>
 </html>
 
-<?php
-                                                 
-    // définition des variables et condition pour Submit 
+<?php                                             
+    // parcour uniquement le $_post de submit ou tous ? et retourne un bolléen true ou false ? 
     if (isset($_POST["submit"])){
         $nom=$_POST["name"];
         $prenom=$_POST["surname"];
         $login=$_POST["login"];
         $pass=$_POST["password"];
         $repass=$_POST["repass"];
-       print_r($_POST);
+    //    print_r($_POST);
     $user = 0;
         // si $pass vaut $repass alors
         if ($pass == $repass){
             // Variable qui défini la requête SQL
-            $req_check_user = "SELECT login FROM utilisateurs";
+            $req_check_user = "SELECT `login` FROM utilisateurs";
             // Variable qui prépare et éxecute la requête défini plus haut vers la base de donnée 
             $req = $conn->query($req_check_user);
 
             // retourne tous les résultats de la reqûete $req dans un tableau 
             $result_user = $req->fetch_all();
-            // $x = 0 si le tableau retourne un résultat alors incrémenter $x de 1 pour chaque résultat correspondant
+            // pour $x = 0 si le tableau retourne un résultat alors incrémenter $x de 1 pour chaque résultat correspondant
             for($x = 0; isset($result_user[$x][0]); $x++){
                 // si le résultat retourné par le tableau correspond à $_POST login
                 if($result_user[$x][0] == $_POST['login']){
@@ -80,10 +80,12 @@
             header ('Location: connexion.php');
         }
     
+        }else{
+            echo "<h1>password non similaire</h1>";
         }
 
     }
-
+mysqli_close($conn);
 ?>
 <!-- Include Footer.php -->
 <?php include("footer.php") ?>
