@@ -2,6 +2,34 @@
    session_start();
    require ('header.php');
    require_once("Connect.php");
+
+// si submit cliqué alors :
+if (isset($_POST['submit'])){
+   //vérifier que les infos sont remplies et définir leur variable
+   if (isset($_POST["login"]) && isset($_POST['password'])){
+      $login=$_POST["login"];
+      $pass=$_POST["password"];
+      $erreur = "";
+   
+      // si le champ de login et password valent admin alors location admin.php
+      if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
+         header ('Location: admin.php');
+      }
+         else{
+         // requete pour trouver l'user ou l'user qui correspond aux champs entrées
+         $req = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pass' ");
+         // compte le nombre de ligne correspondant à la requete, si resultat supérieur à 0 go profil.php
+         $result_ligne = mysqli_num_rows($req);
+         if ($result_ligne > 0){
+               header ('Location: profil.php');
+            // sinon erreur
+            }else{
+               $erreur ="<h1 class= 'erreur'>Login ou Password incorrect</h1>";
+            }
+         }
+   }
+}
+
 ?>
 
 <html>
@@ -25,11 +53,17 @@
          <form id="form" action="" method="post">
             <label><b>Login</b></label>
             <input type="text" placeholder="Enter your login" name="login" required>
-            
             <label><b>Mot de passe</b></label>
             <input type="password" placeholder="Enter your password" name="password" required>
+            <br><br>
             <input type="submit" name='submit' value='submit' >
          </form>
+         <?php
+         // si la variable $erreur existe alors echo
+         if(isset($erreur)){
+            echo "$erreur";
+         }
+         ?>
          <hr>
          <p><strong>Pas de compte ?<a id="locate" href="inscription.php">Inscrivez-vous ici</a></strong></p>
          <hr>
@@ -37,35 +71,6 @@
    </body>
 
 <?php
-  $user=0;
-
-if (isset($_POST["login"]) && isset($_POST['password'])){
-   $login=$_POST["login"];
-   $pass=$_POST["password"];
-
-   if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
-      header ('Location: admin.php');
-   }
-      else{
-      // $req est le chemin défini pour chercher un user ou le login et password correspond
-      $req = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pass' ");
-      // compte le nombre de ligne ou $login et $pass correspondent à la requete.
-      $result_ligne = mysqli_num_rows($req);
-      if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
-         header ('Location: admin.php');
-      }
-      else{
-         if ($result_ligne > 0){
-            header ('Location: profil.php');
-            // header( 'location : profil.php ');
-         }else{
-            echo "<h1>compte inexistant ou erreur détecté</h1>";
-            // header(' location : inscription.php');
-         }
-      }
-   }
-}
-
 include("footer.php");
 mysqli_close($conn);
 ?>
