@@ -11,21 +11,13 @@
 
 <body>
 
-    <div class="div1">
-
+    <div>
+        <hr>
         <!-- Partie visible sur la page Accueil -->
-        <h1>Hello Sir</h1>
+        <h1><img src="Bienvenue.png"></h1>
 
-        <h2>Bienvenue sur le site qui vous permet de faire un module de connexion</h2>
-        
         <p>
-            Aujourd'hui nous somme le <?php echo date('d/m/Y') ?>
-        </p>
-            
-        <p>
-            Apprenez à intéragir avec une Base De Données qui permettra d'alimenter le profil de vos utilisateurs en fonction des données<br>
-            qu'ils vous ont fournis et qui sont enregistré sur votre base de données .<br>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            <strong>Aujourd'hui nous somme le <h1><?php echo date('d/m/Y')?></h1></strong>
         </p>
     </div>
 
