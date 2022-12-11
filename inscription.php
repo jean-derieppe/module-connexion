@@ -41,7 +41,7 @@
 
 <?php                                             
     // parcour uniquement le $_post de submit ou tous ? et retourne un bolléen true ou false ? 
-    if (isset($_POST["submit"])){
+    if (isset($_POST["name"]) && isset($_POST['surname']) && isset($_POST['login']) && isset($_POST['password'])){
         $nom=$_POST["name"];
         $prenom=$_POST["surname"];
         $login=$_POST["login"];
@@ -67,7 +67,7 @@
                     $user ++;
                 }
             }
-        // Si user vaut zéro alors
+        // Si user vaut zéro alors créer compte
         if($user == 0){
             // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
             $req = "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
@@ -80,10 +80,9 @@
         }else{
             echo "<h1>password non similaire</h1>";
         }
-
     }
-
 ?>
+
             <!--  Si connecté , masquer l'onglet inscription  -->
             <p><strong>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
             <hr class="hr1">
