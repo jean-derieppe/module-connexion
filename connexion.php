@@ -15,18 +15,19 @@ if (isset($_POST['submit'])){
       if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
          header ('Location: admin.php');
       }
-         else{
-         // requete pour trouver l'user ou l'user qui correspond aux champs entrées
-         $req = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pass' ");
-         // compte le nombre de ligne correspondant à la requete, si resultat supérieur à 0 go profil.php
-         $result_ligne = mysqli_num_rows($req);
+      else{
+      // requete pour trouver l'user ou l'user qui correspond aux champs entrées
+      $req = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pass' ");
+      // compte le nombre de ligne correspondant à la requete, si resultat supérieur à 0 go profil.php
+      $result_ligne = mysqli_num_rows($req);
          if ($result_ligne > 0){
-               header ('Location: profil.php');
-            // sinon erreur
-            }else{
+            header ('Location: profil.php');
+            $_SESSION['login'] = $login;
+         // sinon erreur
+         }else{
                $erreur ="<h1 class= 'erreur'>Login ou Password incorrect</h1>";
-            }
          }
+      }
    }
 }
 
