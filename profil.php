@@ -13,15 +13,14 @@
  <title>Profil Utilisateur</title>
  </head>
 
-    <div class="div1">
+    <div>
 
         <h1>Profil</h1>
 
         <p>    
-            Bonjour <!-- Afficher le login de user-->
+            <h1>Bonjour</h1> <?php $login ?>
             Vous pouvez acceder à vos informations personnels et les modifiers autant de fois que vous le voudrez !<br>
             Afficher uniquement si User est Log <br>
-
             si modification apporté et enregistré, afficher message de validation .
         </p>
 
@@ -38,15 +37,19 @@
 </html>
 
 <?php
-    // if (isset($_POST["submit"])){
-    //     $nom=$_POST["name"];
-    //     $prenom=$_POST["surname"];
-    //     $login=$_POST["login"];
-    //     $pass=$_POST["password"];
-    //     $repass=$_POST["repass"];
-    // }
-        $user = $_SESSION['login'];
-    echo "Bienvenue sur ton profil".$_SESSION['login'];
+    if (isset($_POST["submit"])){
+        $nom=$_POST["name"];
+        $prenom=$_POST["surname"];
+        $login=$_POST["login"];
+        $pass=$_POST["password"];
+        $repass=$_POST["repass"];
+    }
+    // $req = "UPDATE `utilisateurs` SET ,`login`='[value-2]',`prenom`='[value-3]',`nom`='[value-4]',`password`='[value-5]'";
+    //Préparation de la requête
+    $req = "UPDATE `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
+    // éxécution de la requête.
+    $create = $conn->query($req);
+echo "bienvenue sur ton profil $_POST ['login']";
 ?>
     <!-- Include Footer.php -->
     <?php include("footer.php") ?>
