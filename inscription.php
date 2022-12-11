@@ -44,7 +44,7 @@ if (isset($_POST["submit"])){
             }
     
             }else{
-                $erreur = "<h1 class= 'erreur'>password non similaire</h1>";
+                $erreur = "<h1>password non similaire</h1>";
             }
     }
 }
