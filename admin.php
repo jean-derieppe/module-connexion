@@ -27,6 +27,7 @@ require_once("Connect.php");
             $request = $conn->query('select * from utilisateurs');
             $result = $request->fetch_array(MYSQLI_ASSOC);
 
+            //echo les $key trouvé
             foreach($result = $request->fetch_array(MYSQLI_ASSOC) as $key => $value){
                echo '<th>' . $key . '</th>';
             }
