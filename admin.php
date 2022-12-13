@@ -1,7 +1,10 @@
-<!-- include Header.php -->
 <?php 
-session_start();
+   session_start();
 require ('header.php');
+if($_SESSION['autoriser'] != 'oui'){
+   header("location: connexion.php");
+   exit();
+}
 require_once("Connect.php");
 ?>
 

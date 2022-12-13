@@ -1,7 +1,10 @@
 <?php
-   session_start();
-   require_once("header.php");
-   require_once("Connect.php");
+session_start();
+if($_SESSION['login'] == 'admin' ){
+    header('location: admin.php');
+}
+require_once("header.php");
+require_once("Connect.php");
 ?>
 
 <html>
@@ -12,16 +15,16 @@
  <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
  <title>Profil Utilisateur</title>
  </head>
-
+ 
     <div>
 
-        <h1>Profil</h1>
+        <h1><strong>Profil</strong></h1>
 
         <p>    
-            <h1>Bonjour</h1> <?php $login ?>
+            <h1>Bonjour <?php echo $_SESSION['login'] ?></h1>
             Vous pouvez acceder à vos informations personnels et les modifiers autant de fois que vous le voudrez !<br>
             Afficher uniquement si User est Log <br>
-            si modification apporté et enregistré, afficher message de validation .
+            si modification apporté et enregistré, afficher message de validation.
         </p>
 
         <form class="modification" action="" method="post">
@@ -43,13 +46,17 @@
         $login=$_POST["login"];
         $pass=$_POST["password"];
         $repass=$_POST["repass"];
+    
+        if( $pass == $repass){
+            echo 'o';
+        }
     }
-    // $req = "UPDATE `utilisateurs` SET ,`login`='[value-2]',`prenom`='[value-3]',`nom`='[value-4]',`password`='[value-5]'";
-    //Préparation de la requête
-    $req = "UPDATE `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
-    // éxécution de la requête.
-    $create = $conn->query($req);
-echo "bienvenue sur ton profil $_POST ['login']";
+//     // $req = "UPDATE `utilisateurs` SET ,`login`='$login',`prenom`='$prenom',`nom`='$nom',`password`='$pass'";
+//     //Préparation de la requête
+//     $req = "UPDATE `utilisateurs` SET (`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$pass')";
+//     // éxécution de la requête.
+//     $create = $conn->query($req);
+// echo "bienvenue sur ton profil $_POST ['login']";
 ?>
     <!-- Include Footer.php -->
     <?php include("footer.php") ?>
