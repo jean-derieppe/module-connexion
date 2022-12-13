@@ -96,7 +96,7 @@ if (isset($_POST["submit"])){
 
 
             <!--  Si connecté , masquer l'onglet inscription  -->
-            <p><strong>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
+            <p><strong>Déjà inscrit ? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
             <hr class="hr1">
         </div>
     </body>
