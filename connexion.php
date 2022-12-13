@@ -11,8 +11,9 @@ if (isset($_POST['submit'])){
       $pass=$_POST["password"];
       $erreur = "";
    
-      // si le champ de login et password valent admin alors location admin.php
-      if($_POST["login"] === 'admin' && $_POST["password"] === 'admin'){
+      // si le champ de login et password valent admin alors, initié variable autoriser et location admin.php
+      if($_POST["login"] == 'admin' && $_POST["password"] == 'admin'){
+         $_SESSION['autoriser'] = 'oui';
          header ('Location: admin.php');
       }
       else{
@@ -56,7 +57,7 @@ if (isset($_POST['submit'])){
             <input type="text" placeholder="Enter your login" name="login" required>
             <label><b>Mot de passe</b></label>
             <input type="password" placeholder="Enter your password" name="password" required>
-            <br><br>
+            <br>
             <input type="submit" name='submit' value='submit' >
          </form>
          <?php
@@ -66,8 +67,8 @@ if (isset($_POST['submit'])){
          }
          ?>
          <hr>
-         <p><strong>Pas de compte ?<a id="locate" href="inscription.php">Inscrivez-vous ici</a></strong></p>
-         <hr>
+         <p><strong>Pas de compte ? <a id="locate" href="inscription.php">Inscrivez-vous ici</a></strong></p>
+         <hr class="hr1">
       </div>
    </body>
 
