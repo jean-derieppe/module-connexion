@@ -18,7 +18,13 @@
 
         <p>
             <strong>Aujourd'hui nous somme le <h1><?php echo date('d/m/Y')?></h1></strong>
+            
         </p>
+
+        <p>
+            Inscrivez-vous et modifiez vos données a volonté avec ce module.
+        </p>
+
     </div>
 
 </body>
